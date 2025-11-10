@@ -1,1 +1,59 @@
-/* You can add global styles to this file, and also import other style files */
+/* Variables de Color basadas en la paleta Spotify */
+:root {
+    --color-bg-dark: #191414; /* Fondo Principal */
+    --color-bg-secondary: #282828; /* Paneles Secundarios */
+    --color-accent-spotify: #1DB954; /* Verde de Acento */
+    --color-text-primary: #FFFFFF; /* Texto Principal (Blanco) */
+    --color-text-secondary: #B3B3B3; /* Texto Secundario (Gris Claro) */
+    --color-progress-bar-inactive: #535353; /* Barra de Progreso Gris */
+}
+
+/* Estilos de Reset y Cuerpo */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif; /* Usar una fuente limpia y legible */
+    height: 100%;
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column; /* Apila Header, Main y Footer verticalmente */
+    height: 100vh; /* Ocupa el 100% de la altura de la vista */
+    background-color: var(--color-bg-dark);
+}
+
+/* El Header contiene la Barra de Búsqueda */
+header {
+    padding: 20px;
+    height: 50px; /* Espacio para la barra de búsqueda */
+}
+
+/* El Main contiene Resultados y Fila de Reproducción */
+.main-content-area {
+    display: flex;
+    flex: 1; /* Ocupa todo el espacio vertical disponible restante */
+    overflow: hidden; /* Evita scrolls inesperados */
+}
+
+.results-area {
+    flex: 3; /* Le da más espacio al área de resultados (ej. 70%) */
+    padding: 0 20px 20px 20px; /* Padding para el contenido central */
+    overflow-y: auto; /* Permite scroll solo en los resultados si es necesario */
+}
+
+.queue-area {
+    flex: 1; /* Le da menos espacio a la fila (ej. 30%) */
+    background-color: var(--color-bg-secondary); /* Fondo del panel lateral */
+    border-left: 1px solid rgba(255, 255, 255, 0.05); /* Separador sutil */
+    color: var(--color-text-primary);
+    padding: 20px;
+}
+
+/* El Footer contiene el Reproductor de Música */
+footer {
+    height: 100px; /* Altura fija para el reproductor inferior */
+    background-color: var(--color-bg-dark);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    box-sizing: border-box; /* Incluye border en la altura */
+}

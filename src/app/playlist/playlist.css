@@ -1,0 +1,67 @@
+/* app-fila-reproduccion.component.css */
+
+.queue-panel {
+    /* El contenedor padre ya tiene el fondo oscuro gracias al app.component.css */
+    height: 100%;
+}
+
+.panel-title {
+    color: var(--color-text-primary);
+    font-size: 1.1em;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+h3 {
+    color: var(--color-text-primary);
+    font-size: 0.9em;
+    text-transform: uppercase;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+/* Estilo para cada elemento de la canción */
+.queue-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.queue-item:hover {
+    background-color: rgba(255, 255, 255, 0.05); /* Hover sutil */
+    border-radius: 4px;
+}
+
+.item-art-placeholder {
+    width: 40px;
+    height: 40px;
+    background-color: var(--color-progress-bar-inactive); /* Gris para el ícono/imagen */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2px;
+    margin-right: 10px;
+}
+
+.item-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.item-title {
+    color: var(--color-text-primary); /* Título en blanco */
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.item-artist {
+    color: var(--color-text-secondary); /* Artista en gris */
+    font-size: 0.8em;
+}
+
+/* Estilo para la canción actual (Verde Spotify) */
+.item-title.active-color {
+    color: var(--color-accent-spotify);
+}

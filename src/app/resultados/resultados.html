@@ -1,1 +1,8 @@
-<p>resultados works!</p>
+<div class="results-container">
+  <div *ngIf="!busquedaActiva" class="no-results-message">
+    <p>Aquí se mostrarán los resultados de tus búsquedas</p>
+  </div>
+
+  <div *ngIf="busquedaActiva" class="search-results-list">
+    </div>
+</div>

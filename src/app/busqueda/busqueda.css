@@ -1,0 +1,30 @@
+/* app-barra-busqueda.component.css */
+
+.search-bar-container {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-bg-secondary); /* Fondo gris oscuro */
+    border-radius: 4px; /* Bordes ligeramente redondeados */
+    padding: 10px 15px;
+    max-width: 400px; /* Limita el ancho de la barra */
+}
+
+.search-icon {
+    width: 20px;
+    height: 20px;
+    fill: var(--color-text-secondary); /* Color gris del icono */
+    margin-right: 10px;
+}
+
+.search-input {
+    flex-grow: 1; /* Ocupa todo el espacio restante */
+    background: none; /* Fondo transparente */
+    border: none;
+    outline: none; /* Quita el borde de foco por defecto del navegador */
+    color: var(--color-text-primary); /* Texto que escribe el usuario (Blanco) */
+    font-size: 16px;
+}
+
+.search-input::placeholder {
+    color: var(--color-text-secondary); /* Placeholder gris claro */
+}

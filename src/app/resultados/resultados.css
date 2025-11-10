@@ -1,0 +1,15 @@
+/* app-resultados-busqueda.component.css */
+
+.results-container {
+    height: 100%;
+    color: var(--color-text-secondary); /* Texto gris claro */
+}
+
+.no-results-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 1.2em;
+    text-align: center;
+}
