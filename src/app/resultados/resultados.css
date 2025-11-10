@@ -1,7 +1,8 @@
 /* app-resultados-busqueda.component.css */
 
 .results-container {
-    height: 100%;
+    height: 100% -0px;
+    margin-top: 20px;
     color: var(--color-text-secondary); /* Texto gris claro */
 }
 

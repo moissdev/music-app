@@ -6,7 +6,8 @@
     background-color: var(--color-bg-secondary); /* Fondo gris oscuro */
     border-radius: 4px; /* Bordes ligeramente redondeados */
     padding: 10px 15px;
-    max-width: 400px; /* Limita el ancho de la barra */
+    max-width: 100%; /* Ancho fijo o máximo para centrar */
+    width: 600px;
 }
 
 .search-icon {
