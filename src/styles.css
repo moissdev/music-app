@@ -37,6 +37,7 @@ header {
     width: 100%;
     /* Mantenemos el margen derecho para dejar espacio a la fila de reproducción */
     box-sizing: border-box;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     /* Centra la barra de búsqueda dentro de este wrapper */
     display: flex;
     justify-content: center; /* Centra el componente <app-barra-busqueda> */

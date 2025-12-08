@@ -21,6 +21,7 @@
 .album-art-placeholder {
     width: 80px;
     height: 80px;
+    border-radius: 5px;
     background-color: var(--color-progress-bar-inactive);
     margin-right: 20px;
     display: flex;
