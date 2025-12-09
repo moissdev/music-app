@@ -1,6 +1,5 @@
-// app-resultados-busqueda.component.ts
-
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
+import { SpotifyService } from '../services/spotify.service';
 
 @Component({
   selector: 'app-resultados',
@@ -8,25 +7,11 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: 'resultados.html',
   styleUrls: ['resultados.css']
 })
-export class Resultados implements OnInit {
+export class Resultados {
 
-  // **PROPIEDAD DEFINIDA**
-  // Booleano que controla si se muestra el mensaje inicial o los resultados de una búsqueda
-  busquedaActiva: boolean = false; // Inicialmente es 'false' para mostrar el mensaje: "Aquí se mostrarán..."
+  constructor(public spotifyService: SpotifyService) {}
 
-  // También puedes definir la variable para el término de búsqueda
-  terminoBusqueda: string = '';
-
-  // Y el array de resultados, que estaría vacío inicialmente
-  resultados: any[] = [];
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-  // Ejemplo de un método que se ejecutaría al recibir un resultado
-  mostrarResultados(activa: boolean): void {
-    this.busquedaActiva = activa;
+  seleccionarCancion(track: any) {
+    this.spotifyService.playTrack(track);
   }
 }

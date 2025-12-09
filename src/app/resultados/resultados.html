@@ -1,8 +1,13 @@
 <div class="results-container">
-  <div *ngIf="!busquedaActiva" class="no-results-message">
-    <p>Aquí se mostrarán los resultados de tus búsquedas</p>
-  </div>
-
-  <div *ngIf="busquedaActiva" class="search-results-list">
+  <div 
+    class="card" 
+    *ngFor="let track of spotifyService.searchResults()" 
+    (click)="seleccionarCancion(track)">
+    
+    <img [src]="track.album.images[0]?.url" alt="Album cover">
+    <div class="info">
+      <h3>{{ track.name }}</h3>
+      <p>{{ track.artists[0].name }}</p>
     </div>
+  </div>
 </div>

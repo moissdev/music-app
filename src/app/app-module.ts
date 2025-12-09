@@ -1,5 +1,6 @@
-import { NgModule, provideBrowserGlobalErrorListeners, provideZonelessChangeDetection } from '@angular/core';
+import { NgModule,provideZoneChangeDetection, provideBrowserGlobalErrorListeners, provideZonelessChangeDetection } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { provideHttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing-module';
@@ -24,7 +25,9 @@ import { Resultados } from './resultados/resultados';
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
-    provideZonelessChangeDetection()
+    provideZonelessChangeDetection(),
+    provideZoneChangeDetection({ eventCoalescing: true }),
+    provideHttpClient()
   ],
   bootstrap: [App]
 })

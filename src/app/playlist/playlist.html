@@ -1,25 +1,11 @@
 <div class="queue-panel">
-  <h2 class="panel-title">Fila de reproducción</h2>
-
-  <div class="current-track-section">
-    <h3>Estás escuchando</h3>
-    <div class="queue-item active">
-      <div class="item-art-placeholder"></div>
-      <div class="item-details">
-        <span class="item-title active-color">Nombre de la canción</span>
-        <span class="item-artist">Artista, artistas</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="next-tracks-section">
-    <h3>Siguientes canciones</h3>
-    <div *ngFor="let cancion of siguientesCanciones" class="queue-item">
-      <div class="item-art-placeholder"></div>
-      <div class="item-details">
-        <span class="item-title">{{ cancion.titulo }}</span>
-        <span class="item-artist">{{ cancion.artista }}</span>
-      </div>
-    </div>
-  </div>
+  <h2 class="panel-title">Cola de reproducción</h2>
+  <ul>
+    <li 
+      *ngFor="let track of spotifyService.currentQueue()"
+      [class.active]="track.id === spotifyService.currentSong()?.id"
+      (click)="spotifyService.playTrack(track)">
+      {{ track.name }} - {{ track.artists[0].name }}
+    </li>
+  </ul>
 </div>

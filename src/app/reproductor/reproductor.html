@@ -22,3 +22,34 @@
     </div>
   </div>
 </div>
+
+<div class="player-bar" *ngIf="spotifyService.currentSong()">
+  <div class="song-info">
+    <img [src]="spotifyService.currentSong().album.images[2]?.url" alt="cover">
+    <div>
+      <h4>{{ spotifyService.currentSong().name }}</h4>
+      <small>{{ spotifyService.currentSong().artists[0].name }}</small>
+    </div>
+  </div>
+
+  <div class="playback-controls">
+    <button (click)="spotifyService.prev()">⏮</button>
+    
+    <button class="play-btn" (click)="spotifyService.togglePlay()">
+      {{ spotifyService.isPlaying() ? '⏸' : '▶' }}
+    </button>
+    
+    <button (click)="spotifyService.next()">⏭</button>
+  </div>
+
+  <div class="progress-bar-area">
+    <span>{{ currentTime | number:'1.0-0' }}s</span>
+    <input 
+      type="range" 
+      [min]="0" 
+      [max]="duration" 
+      [value]="currentTime" 
+      (input)="seek($event)">
+    <span>{{ duration | number:'1.0-0' }}s</span>
+  </div>
+</div>

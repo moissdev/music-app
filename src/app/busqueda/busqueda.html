@@ -1,10 +1,10 @@
 <div class="search-bar-container">
-  <svg class="search-icon" viewBox="0 0 24 24">
-    </svg>
-  <input
-    type="text"
-    placeholder="Buscar canción, álbum o artista"
+  <svg class="search-icon" viewBox="0 0 24 24"></svg>
+  <input 
+    type="text" 
+    placeholder="Buscar artista o canción..." 
     class="search-input"
-    [(ngModel)]="terminoBusqueda"
-  >
+    [(ngModel)]="termino"
+    (keyup.enter)="buscar()">
+  <button (click)="buscar()">Buscar</button>
 </div>
