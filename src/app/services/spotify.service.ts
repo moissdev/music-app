@@ -6,10 +6,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class SpotifyService {
-  // --- CONFIGURACIÓN API ---
-  
-  // Nota: Necesitarás un token válido. Para pruebas rápidas obtenlo aquí: 
-  // https://developer.spotify.com/console/get-search-item/
+
   private token = 'BQCW8XioyFkB1P5MfQH8JQ5EObNU8t8iVdvBRZ_m-IPB9mZORnw10dYykNYzxktfiqAF9ETDPpwyF1eiNsl5-Km4cI6upABLKrnt-DNOTJsriWzr5mFcEfLGXRVggUPL5PflxsP_UIQ'; 
   private baseUrl = 'https://api.spotify.com/v1';
   
@@ -21,7 +18,6 @@ export class SpotifyService {
   private audio = new Audio();
 
   constructor(private http: HttpClient) {
-    // Escuchar cuando termina una canción para pasar a la siguiente
     this.audio.addEventListener('ended', () => this.next());
   }
 
@@ -36,8 +32,6 @@ export class SpotifyService {
   playTrack(track: any) {
     this.currentSong.set(track);
     
-    // Nota: La API estándar solo da 'preview_url' (30 seg). 
-    // Para canciones completas se necesita el Web Playback SDK (más avanzado).
     if (track.preview_url) {
       this.audio.src = track.preview_url;
       this.audio.load();
@@ -90,7 +84,6 @@ export class SpotifyService {
     }
   }
   
-  // Obtener tiempo actual y duración para la barra de progreso
   getAudioElement() {
     return this.audio;
   }

@@ -14,7 +14,6 @@ export class Reproductor {
   constructor(public spotifyService: SpotifyService) {
     const audio = this.spotifyService.getAudioElement();
 
-    // Actualizar barra de progreso
     audio.ontimeupdate = () => {
       this.currentTime = audio.currentTime;
     };
