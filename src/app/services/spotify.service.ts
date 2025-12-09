@@ -1,13 +1,15 @@
 import { Injectable, signal } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { BehaviorSubject } from 'rxjs';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { environment } from '../environments/environment';
+import { App } from '../app';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SpotifyService {
 
-  private token = 'BQCW8XioyFkB1P5MfQH8JQ5EObNU8t8iVdvBRZ_m-IPB9mZORnw10dYykNYzxktfiqAF9ETDPpwyF1eiNsl5-Km4cI6upABLKrnt-DNOTJsriWzr5mFcEfLGXRVggUPL5PflxsP_UIQ'; 
+  private token = this.getToken(); 
   private baseUrl = 'https://api.spotify.com/v1';
   
   currentSong = signal<any>(null);
@@ -17,8 +19,25 @@ export class SpotifyService {
 
   private audio = new Audio();
 
-  constructor(private http: HttpClient) {
+  constructor(
+    private http: HttpClient
+  ) {
     this.audio.addEventListener('ended', () => this.next());
+    
+  }
+
+  getToken(): Observable<any> {
+    const body = new HttpParams()
+      .set("grant_type","client_credentials")
+      .set("client_id",environment.client_id)
+      .set("client_secret",environment.client_secret)
+
+    return this.http.post<any>(`${environment.API_URL}api/token`, body.toString(),
+    {
+      headers: {'Content-Type': "application/x-www-form-urlencoded"}
+    }
+  );
+
   }
 
   searchTracks(query: string) {

@@ -1,4 +1,5 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, OnInit } from '@angular/core';
+import { SpotifyService } from './services/spotify.service';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +7,18 @@ import { Component, signal } from '@angular/core';
   standalone: false,
   styleUrl: './app.css'
 })
-export class App {
+export class App implements OnInit {
   protected readonly title = signal('music-app');
+
+  constructor(
+    private spotifyLogin: SpotifyService
+  ) {}
+
+  ngOnInit(): void {
+    this.spotifyLogin.getToken().subscribe((data) => {
+      const token = data.access_token;
+  });
+  }
+
+  
 }
