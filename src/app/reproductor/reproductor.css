@@ -1,126 +1,122 @@
-/* app-reproductor-musica.component.css */
+/* src/app/reproductor/reproductor.css */
 
 .player-bar {
     display: flex;
     justify-content: space-between;
-    align-items: end  ;
-    height: 80px;
-    padding: 10px 20px;
-    color: var(--color-text-primary);
-    max-width: 1200px; /* O el ancho máximo que desees para el contenido central */
+    align-items: center;
+    height: 100%;
     width: 100%;
 }
 
-/* 1. Información de la Canción (Izquierda) */
+/* 1. Información de la canción (Izquierda) */
 .song-info {
     display: flex;
-    align-items: end;
-    margin-right: 80px;
+    align-items: center;
+    width: 30%;
+    min-width: 180px;
 }
 
-.album-art-placeholder {
-    width: 80px;
-    height: 80px;
-    border-radius: 5px;
-    background-color: var(--color-progress-bar-inactive);
-    margin-right: 20px;
+.song-info img {
+    height: 56px;
+    width: 56px;
+    border-radius: 4px;
+    margin-right: 14px;
+}
+
+.song-info div {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
 }
 
-.music-note-icon {
-    width: 25px;
-    height: 25px;
-    fill: var(--color-text-primary);
+.song-info h4 {
+    margin: 0;
+    font-size: 14px;
+    color: var(--text-primary);
 }
 
-.song-details {
-    display: flex;
-    flex-direction: column;
+.song-info small {
+    font-size: 11px;
+    color: var(--text-secondary);
 }
 
-.song-title {
-    font-weight: bold;
-    font-size: 1em;
-}
-
-.song-artist {
-    color: var(--color-text-secondary);
-    font-size: 0.9em;
-}
-
-/* 2. Controles y Progreso (Centro) */
-.controls-area {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex-grow: 1;
-    max-width: 800px;
-}
-
+/* 2. Controles y Barra (Centro) */
 .playback-controls {
-    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 40%;
 }
 
-.control-btn {
+/* Botones de control */
+button {
     background: none;
     border: none;
-    color: var(--color-text-primary);
-    font-size: 1.5em;
+    color: var(--text-secondary);
+    font-size: 20px;
     cursor: pointer;
-    margin: 0 10px;
-    padding: 5px;
-    transition: color 0.1s;
+    transition: color 0.2s;
 }
 
-.control-btn:hover {
-    color: var(--color-accent-spotify);
+button:hover {
+    color: var(--text-primary);
 }
 
-.large-btn {
-    font-size: 2em; /* Botón de Play/Pausa más grande */
+.play-btn {
+    font-size: 32px; /* Play más grande */
+    color: var(--text-primary);
+    background-color: var(--text-primary); /* Círculo blanco */
+    color: #000; /* Icono negro */
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
 }
 
+.play-btn:hover {
+    transform: scale(1.1);
+}
+
+/* 3. Barra de Progreso (Derecha/Abajo) */
 .progress-bar-area {
     display: flex;
     align-items: center;
+    gap: 8px;
+    width: 30%;
+    justify-content: flex-end;
+    font-size: 11px;
+    color: var(--text-secondary);
+}
+
+/* Estilo del Input Range (Barra verde) */
+input[type="range"] {
+    -webkit-appearance: none;
     width: 100%;
-    font-size: 0.8em;
-}
-
-.time-current, .time-total {
-    color: var(--color-text-secondary);
-}
-
-.time-current {
-    margin-right: 10px;
-}
-
-.time-total {
-    margin-left: 10px;
-}
-
-/* Estilo del slider de progreso */
-.progress-slider {
-    flex-grow: 1;
-    -webkit-appearance: none; /* Quita estilos por defecto en WebKit */
-    appearance: none;
-    height: 5px;
-    width: 400px;
-    border-radius: 10px;
-    background: var(--color-progress-bar-inactive); /* Color base (Gris) */
+    height: 4px;
+    background: #535353;
+    border-radius: 2px;
+    outline: none;
     cursor: pointer;
 }
 
-/* Estilo del "relleno" o progreso activo (Verde Spotify) */
-.progress-slider::-webkit-slider-thumb {
+/* Color de la barra al avanzar */
+input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
-    appearance: none;
-    width: 12px;
     height: 12px;
-    background: var(--color-text-primary); /* El círculo al arrastrar (Blanco) */
+    width: 12px;
     border-radius: 50%;
-    margin-top: -3px; /* Centrar visualmente */
+    background: var(--text-primary);
+    cursor: pointer;
+    box-shadow: 0 0 4px rgba(0,0,0,0.5);
+    /* Truco para que se vea solo al hover si quieres, 
+       pero por ahora lo dejamos visible */
 }
-/* Nota: Implementar el color verde en el progreso requiere JS/Angular o trucos CSS */
+
+/* Accent color para navegadores modernos */
+input[type="range"] {
+    accent-color: var(--spotify-green); 
+}

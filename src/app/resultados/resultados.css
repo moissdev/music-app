@@ -1,16 +1,59 @@
-/* app-resultados-busqueda.component.css */
+/* src/app/resultados/resultados.css */
 
 .results-container {
-    height: 100% -0px;
-    margin-top: 20px;
-    color: var(--color-text-secondary); /* Texto gris claro */
+    display: grid;
+    /* Grid responsivo: crea tantas columnas como quepan con un ancho mín de 180px */
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 24px;
+    padding-bottom: 40px;
 }
 
-.no-results-message {
+.card {
+    background-color: var(--bg-card);
+    padding: 16px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    font-size: 1.2em;
-    text-align: center;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.card:hover {
+    background-color: var(--bg-card-hover);
+}
+
+.card img {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Mantiene la imagen cuadrada */
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.info h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0;
+    color: var(--text-primary);
+    /* Cortar texto si es muy largo */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.info p {
+    font-size: 14px;
+    margin: 0;
+    color: var(--text-secondary);
+    /* Cortar texto */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

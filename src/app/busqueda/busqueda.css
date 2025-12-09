@@ -1,31 +1,42 @@
-/* app-barra-busqueda.component.css */
+/* src/app/busqueda/busqueda.css */
 
 .search-bar-container {
     display: flex;
     align-items: center;
-    background-color: var(--color-bg-secondary); /* Fondo gris oscuro */
-    border-radius: 4px; /* Bordes ligeramente redondeados */
-    padding: 10px 15px;
-    max-width: 100%; /* Ancho fijo o máximo para centrar */
-    width: 600px;
+    background-color: #ffffff;
+    border-radius: 500px; /* Forma de píldora completa */
+    padding: 6px 12px;
+    width: 360px;
+    margin-bottom: 30px; /* Separación con los resultados */
 }
 
 .search-icon {
-    width: 20px;
-    height: 20px;
-    fill: var(--color-text-secondary); /* Color gris del icono */
+    width: 24px;
+    height: 24px;
+    fill: #121212;
     margin-right: 10px;
 }
 
 .search-input {
-    flex-grow: 1; /* Ocupa todo el espacio restante */
-    background: none; /* Fondo transparente */
     border: none;
-    outline: none; /* Quita el borde de foco por defecto del navegador */
-    color: var(--color-text-primary); /* Texto que escribe el usuario (Blanco) */
-    font-size: 16px;
+    outline: none;
+    flex: 1;
+    font-size: 14px;
+    color: #121212;
+    background: transparent;
+    padding: 8px 0;
 }
 
-.search-input::placeholder {
-    color: var(--color-text-secondary); /* Placeholder gris claro */
+/* Botón de buscar (opcional, estilo sutil) */
+button {
+    background-color: transparent;
+    border: none;
+    color: #121212;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover {
+    transform: scale(1.05);
 }
