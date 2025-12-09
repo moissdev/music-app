@@ -9,9 +9,9 @@ export class SpotifyService {
   // --- CONFIGURACIÓN API ---
   // Nota: Necesitarás un token válido. Para pruebas rápidas obtenlo aquí: 
   // https://developer.spotify.com/console/get-search-item/
-  private token = 'TU_TOKEN_TEMPORAL_AQUI'; 
+  private token = '1POdFZRZbvb...qqillRxMr2z'; 
   private baseUrl = 'https://api.spotify.com/v1';
-
+  
   currentSong = signal<any>(null);
   isPlaying = signal<boolean>(false);
   currentQueue = signal<any[]>([]);

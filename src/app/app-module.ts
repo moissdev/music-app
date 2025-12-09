@@ -25,7 +25,6 @@ import { Resultados } from './resultados/resultados';
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
-    provideZonelessChangeDetection(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideHttpClient()
   ],
