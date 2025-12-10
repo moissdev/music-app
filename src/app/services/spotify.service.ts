@@ -26,7 +26,7 @@ export class SpotifyService {
     this.getToken();
     
   }
-
+  
   getToken() {
     const body = new HttpParams()
       .set('grant_type', 'client_credentials')
